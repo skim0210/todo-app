@@ -18,7 +18,7 @@
                 tasks.forEach(task => addTask(task));
             }
 
-            // ✅ 할 일 추가 함수
+            // ✅ 할 일 추가 함수 (삭제 버튼 없음)
             function addTask(taskText) {
                 if (!taskText.trim()) return;
 
@@ -28,7 +28,7 @@
                 // ✨ 목록 클릭 시 삭제 기능 추가
                 li.addEventListener("click", function () {
                     li.remove();
-                    saveTasks(); // 변경된 목록을 저장
+                    saveTasks();
                 });
 
                 taskList.appendChild(li);
