@@ -25,22 +25,19 @@
                 const li = document.createElement("li");
                 li.textContent = taskText;
 
-                // 삭제 버튼 추가
-                const deleteBtn = document.createElement("button");
-                deleteBtn.textContent = "삭제";
-                deleteBtn.onclick = function () {
+                // ✨ 목록 클릭 시 삭제 기능 추가
+                li.addEventListener("click", function () {
                     li.remove();
-                    saveTasks();
-                };
+                    saveTasks(); // 변경된 목록을 저장
+                });
 
-                li.appendChild(deleteBtn);
                 taskList.appendChild(li);
                 saveTasks();
             }
 
             // ✅ 할 일 목록 저장
             function saveTasks() {
-                const tasks = Array.from(taskList.children).map(li => li.firstChild.textContent);
+                const tasks = Array.from(taskList.children).map(li => li.textContent);
                 localStorage.setItem("tasks", JSON.stringify(tasks));
             }
 
